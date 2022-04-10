@@ -44,4 +44,42 @@ class JacketImplTest {
 		//then
 		assertEquals(bullet, shot);
 	}
+
+	@Test
+	void shouldShotWithEmptyBulletWhenEmpty() {
+		//given
+		JacketImpl jacket = new JacketImpl();
+
+		//when
+		String shot = jacket.shot();
+
+		//then
+		assertEquals(Jacket.EMPTY, shot);
+	}
+
+	@Test
+	void shouldShotWithEmptyBulletEventually() {
+		//given
+		JacketImpl jacket = new JacketImpl();
+		jacket.loadBullet("anything");
+
+		//when
+		jacket.shot();
+		String shot = jacket.shot();
+
+		//then
+		assertEquals(Jacket.EMPTY, shot);
+	}
+
+	@Test
+	void shouldAlwaysShotWithEmptyBulletWhenEmpty() {
+		//given
+		JacketImpl jacket = new JacketImpl();
+
+		//when
+		//then
+		assertEquals(Jacket.EMPTY, jacket.shot());
+		assertEquals(Jacket.EMPTY, jacket.shot());
+		assertEquals(Jacket.EMPTY, jacket.shot());
+	}
 }
