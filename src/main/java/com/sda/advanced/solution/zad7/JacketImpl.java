@@ -9,11 +9,12 @@ public class JacketImpl implements Jacket {
 
 	@Override
 	public void loadBullet(String bullet) {
+		stack.add(bullet);
 	}
 
 	@Override
 	public boolean isLoaded() {
-		return false;
+		return !stack.isEmpty();
 	}
 
 	@Override
