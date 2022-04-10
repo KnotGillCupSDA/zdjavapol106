@@ -46,6 +46,24 @@ class JacketImplTest {
 	}
 
 	@Test
+	void shouldShotInFiLoOrder() {
+		//given
+		JacketImpl jacket = new JacketImpl();
+		String bullet1 = "Pierwszy nabój";
+		jacket.loadBullet(bullet1);
+		String bullet2 = "Drugi nabój";
+		jacket.loadBullet(bullet2);
+		String bullet3 = "Trzeci nabój";
+		jacket.loadBullet(bullet3);
+
+		//when
+		//then
+		assertEquals(bullet3, jacket.shot());
+		assertEquals(bullet2, jacket.shot());
+		assertEquals(bullet1, jacket.shot());
+	}
+
+	@Test
 	void shouldShotWithEmptyBulletWhenEmpty() {
 		//given
 		JacketImpl jacket = new JacketImpl();

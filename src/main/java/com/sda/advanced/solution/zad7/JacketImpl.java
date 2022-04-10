@@ -19,9 +19,12 @@ public class JacketImpl implements Jacket {
 	@Override
 	public void loadBullet(String bullet) {
 		//if is full then throw exception
+		if(stack.size() >= maxSize) {
+			throw new RuntimeException("Jacket is overload");
+		}
 
 		//else add to deque/stack
-		stack.add(bullet);
+		stack.push(bullet);
 	}
 
 	@Override
