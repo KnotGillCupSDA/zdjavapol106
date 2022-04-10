@@ -82,4 +82,17 @@ class JacketImplTest {
 		assertEquals(Jacket.EMPTY, jacket.shot());
 		assertEquals(Jacket.EMPTY, jacket.shot());
 	}
+
+	@Test
+	void shouldThrowsExceptionWhenTryToLoadFullJacket() {
+		int maxSize = 8;
+		JacketImpl jacket = new JacketImpl(maxSize);
+
+		for(int i = 0; i< maxSize; i++) {
+			jacket.loadBullet(String.valueOf(i));
+		}
+
+		assertThrows(Exception.class, () -> jacket.loadBullet("8"));
+
+	}
 }

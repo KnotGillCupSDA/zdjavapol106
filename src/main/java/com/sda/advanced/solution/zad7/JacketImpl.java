@@ -7,6 +7,14 @@ public class JacketImpl implements Jacket {
 
 	private final Deque<String> stack = new ArrayDeque<>();
 
+	public JacketImpl() {
+		this(10);
+	}
+
+	public JacketImpl(int maxSize) {
+
+	}
+
 	@Override
 	public void loadBullet(String bullet) {
 		stack.add(bullet);
@@ -19,6 +27,10 @@ public class JacketImpl implements Jacket {
 
 	@Override
 	public String shot() {
-		return stack.pop();
+		if (isLoaded()) {
+			return stack.pop();
+		} else {
+			return Jacket.EMPTY;
+		}
 	}
 }
