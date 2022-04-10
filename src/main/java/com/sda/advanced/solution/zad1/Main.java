@@ -5,11 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-//Zad1
 public class Main {
 
 	public static void main(String[] args) {
-		List<String> unsorted = new ArrayList<>();
+		final List<String> unsorted = new ArrayList<>();
 		unsorted.add("A");
 		unsorted.add("B");
 		unsorted.add("b");
@@ -19,18 +18,31 @@ public class Main {
 
 		System.out.println(unsorted);
 
-		List<String> sorted = sortWithCollections(unsorted);
-
 		System.out.println("===");
-		System.out.println(sorted);
+		System.out.println(sortWithCollections(unsorted));
+		System.out.println("===");
+		System.out.println(sortWithCustomComparator(unsorted));
+		System.out.println("===");
+		System.out.println(sortWithAnonymousClass(unsorted));
+		System.out.println("===");
+		System.out.println(sortWithLambda(unsorted));
+		System.out.println("===");
+		List<String> x = sortWithBuiltInComparator(unsorted);
+		System.out.println(x);
+
+
+		System.out.println("=========");
+		System.out.println(unsorted);
 	}
 
 	private static List<String> sortWithCollections(List<String> unsorted) {
-		Collections.sort(unsorted, new MyComparator());
-		return unsorted;
+		//we should probably make a copy so that the original list is not changed
+		List<String> sorted = new ArrayList<>(unsorted);
+		Collections.sort(sorted, new MyComparator());
+		return sorted;
 	}
 
-	private static List<String> sortWithOuterComparator(List<String> unsorted) {
+	private static List<String> sortWithCustomComparator(List<String> unsorted) {
 		unsorted.sort(new MyComparator());
 		return unsorted;
 	}
@@ -51,7 +63,7 @@ public class Main {
 		return names;
 	}
 
-	private static List<String> sortWithComparator(List<String> names){
+	private static List<String> sortWithBuiltInComparator(List<String> names){
 		names.sort(Comparator.reverseOrder());
 		return names;
 	}
