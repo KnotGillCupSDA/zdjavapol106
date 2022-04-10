@@ -3,7 +3,7 @@ package com.sda.advanced.solution.zad7;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class MyJacket implements Jacket {
+public class JacketImpl implements Jacket {
 
 	private final Deque<String> stack = new ArrayDeque<>();
 
