@@ -23,8 +23,14 @@ public class Main {
 		}*/
 
 		//it's better to iterate over key->value pairs in this case
+		int index = 0;
 		for (Map.Entry<String, Integer> entry : map.entrySet()) {
-			System.out.println("Klucz: " + entry.getKey() + " " + "Wartość: " + entry.getValue());
+			boolean isLastElement = index++ == map.size() - 1;
+			if (isLastElement) {
+				System.out.println("Klucz: " + entry.getKey() + " " + "Wartość: " + entry.getValue() + ".");
+			} else {
+				System.out.println("Klucz: " + entry.getKey() + " " + "Wartość: " + entry.getValue() + ",");
+			}
 		}
 
 	}
