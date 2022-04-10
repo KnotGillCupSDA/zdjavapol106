@@ -12,9 +12,12 @@ public class Main {
 		storage.addToStorage("k2", "v1");
 		storage.addToStorage("k2", "v4");
 
+		storage.addToStorage("k3", "v5");
+
 		storage.printValues("anything");
-		storage.printValues("k1");
-		//expected [v1, v2]
+		storage.printValues("k1"); //expected [v1, v2, v3]
+		storage.printValues("k2");
+		storage.printValues("k3");
 	}
 
 }
