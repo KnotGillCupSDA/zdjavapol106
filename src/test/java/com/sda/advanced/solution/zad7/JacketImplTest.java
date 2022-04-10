@@ -22,13 +22,26 @@ class JacketImplTest {
 	void shouldNotBeEmptyAfterLoad() {
 		//given
 		JacketImpl jacket = new JacketImpl();
+		jacket.loadBullet("Pierwszy nabój");
 
 		//when
-		jacket.loadBullet("Pierwszy nabój");
 		boolean loaded = jacket.isLoaded();
 
 		//then
 		assertTrue(loaded);
 	}
 
+	@Test
+	void shouldShot() {
+		//given
+		JacketImpl jacket = new JacketImpl();
+		String bullet = "Pierwszy nabój";
+		jacket.loadBullet(bullet);
+
+		//when
+		String shot = jacket.shot();
+
+		//then
+		assertEquals(bullet, shot);
+	}
 }
