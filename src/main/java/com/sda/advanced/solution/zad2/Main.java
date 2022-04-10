@@ -20,15 +20,15 @@ public class Main {
 
 		System.out.println(unsorted);
 
-		System.out.println("===");
+		System.out.println("=== sortWithCollections");
 		System.out.println(sortWithCollections(unsorted));
-		System.out.println("===");
+		System.out.println("=== sortWithCustomComparator");
 		System.out.println(sortWithCustomComparator(unsorted));
-		System.out.println("===");
+		System.out.println("=== sortWithAnonymousClass");
 		System.out.println(sortWithAnonymousClass(unsorted));
-		System.out.println("===");
+		System.out.println("=== sortWithLambda");
 		System.out.println(sortWithLambda(unsorted));
-		System.out.println("===");
+		System.out.println("=== sortWithBuiltInComparator");
 		List<String> x = sortWithBuiltInComparator(unsorted);
 		System.out.println(x);
 
@@ -54,19 +54,20 @@ public class Main {
 
 			@Override
 			public int compare(String o1, String o2) {
-				return o2.compareTo(o1);
+				// not optimal solution as we allocate o lot of new Strings when calling toLower()
+				return o2.toLowerCase().compareTo(o1.toLowerCase());
 			}
 		});
 		return unsorted;
 	}
 
 	private static List<String> sortWithLambda(List<String> names){
-		names.sort((o1, o2) -> o2.compareTo(o1));
+		names.sort((o1, o2) -> o2.compareToIgnoreCase(o1));
 		return names;
 	}
 
 	private static List<String> sortWithBuiltInComparator(List<String> names){
-		names.sort(Comparator.reverseOrder());
+		names.sort(String.CASE_INSENSITIVE_ORDER.reversed());
 		return names;
 	}
 }
