@@ -18,6 +18,14 @@ public class Main {
 	}
 
 	private static void print(Map<String, Integer> map) {
+		/*for (String i : map.keySet()) {
+			System.out.println("Klucz: " + i + " " + "Wartość: " + map.get(i));
+		}*/
+
+		//it's better to iterate over key->value pairs in this case
+		for (Map.Entry<String, Integer> entry : map.entrySet()) {
+			System.out.println("Klucz: " + entry.getKey() + " " + "Wartość: " + entry.getValue());
+		}
 
 	}
 
