@@ -7,6 +7,10 @@ public class Main {
 
 		storage.addToStorage("k1", "v1");
 		storage.addToStorage("k1", "v2");
+		storage.addToStorage("k1", "v3");
+
+		storage.addToStorage("k2", "v1");
+		storage.addToStorage("k2", "v4");
 
 		storage.printValues("anything");
 		storage.printValues("k1");
