@@ -9,7 +9,6 @@ public class JacketImpl implements Jacket {
 
 	@Override
 	public void loadBullet(String bullet) {
-
 	}
 
 	@Override
