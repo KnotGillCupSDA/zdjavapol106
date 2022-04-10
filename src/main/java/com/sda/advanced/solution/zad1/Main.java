@@ -2,6 +2,7 @@ package com.sda.advanced.solution.zad1;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 //Zad1
@@ -24,17 +25,34 @@ public class Main {
 		System.out.println(sorted);
 	}
 
-	/**
-	 * @param unsorted a list to be sorted
-	 * @return sorted list
-	 */
 	private static List<String> sortWithCollections(List<String> unsorted) {
-		Collections.sort(unsorted, (o1, o2) -> o2.compareTo(o1));
+		Collections.sort(unsorted, new MyComparator());
 		return unsorted;
 	}
 
-	private static List<String> sortNamesFromZToA(List<String> names){
+	private static List<String> sortWithOuterComparator(List<String> unsorted) {
+		unsorted.sort(new MyComparator());
+		return unsorted;
+	}
+
+	private static List<String> sortWithAnonymousClass(List<String> unsorted) {
+		unsorted.sort(new Comparator<String>() {
+
+			@Override
+			public int compare(String o1, String o2) {
+				return o2.compareTo(o1);
+			}
+		});
+		return unsorted;
+	}
+
+	private static List<String> sortWithLambda(List<String> names){
 		names.sort((o1, o2) -> o2.compareTo(o1));
+		return names;
+	}
+
+	private static List<String> sortWithComparator(List<String> names){
+		names.sort(Comparator.reverseOrder());
 		return names;
 	}
 }
