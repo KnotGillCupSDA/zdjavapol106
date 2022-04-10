@@ -12,4 +12,7 @@ public class Storage {
 		System.out.println(strings);
 	}
 
+	public void addToStorage(String k1, String v1) {
+
+	}
 }
