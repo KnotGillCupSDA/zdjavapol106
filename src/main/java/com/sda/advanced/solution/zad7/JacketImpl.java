@@ -19,6 +19,6 @@ public class JacketImpl implements Jacket {
 
 	@Override
 	public String shot() {
-		return null;
+		return stack.pop();
 	}
 }
