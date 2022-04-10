@@ -1,5 +1,7 @@
 package com.sda.advanced.solution.zad4;
 
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -18,6 +20,10 @@ public class Main {
 		storage.printValues("k1"); //expected [v1, v2, v3]
 		storage.printValues("k2");
 		storage.printValues("k3");
+
+		List<String> keysForV1 = storage.findKeysByValue("v1");
+		System.out.println(keysForV1); //expected [k1, k2]
+		System.out.println(storage.findKeysByValue("v2")); //expected [k1]
 	}
 
 }

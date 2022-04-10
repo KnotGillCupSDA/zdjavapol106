@@ -26,4 +26,8 @@ public class Storage {
 		List<String> strings = map.get(key);
 		System.out.println(strings);
 	}
+
+	public List<String> findKeysByValue(String value) {
+		return null;
+	}
 }
