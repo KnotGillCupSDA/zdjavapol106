@@ -3,6 +3,7 @@ package com.sda.advanced.solution.zad7;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 class JacketImplTest {
 

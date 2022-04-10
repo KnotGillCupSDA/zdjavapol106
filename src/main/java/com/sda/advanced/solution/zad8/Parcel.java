@@ -2,31 +2,30 @@ package com.sda.advanced.solution.zad8;
 
 public class Parcel {
 
-	private final int x;
-	private final int y;
-	private final int z;
+	private final int xLength;
+	private final int yLength;
+	private final int zLength;
 	private final float weight;
 	private final boolean isExpress;
 
-	public Parcel(int x, int y, int z, float weight, boolean isExpress) {
-
-		this.x = x;
-		this.y = y;
-		this.z = z;
+	public Parcel(int xLength, int yLength, int zLength, float weight, boolean isExpress) {
+		this.xLength = xLength;
+		this.yLength = yLength;
+		this.zLength = zLength;
 		this.weight = weight;
 		this.isExpress = isExpress;
 	}
 
-	public int getX() {
-		return x;
+	public int getxLength() {
+		return xLength;
 	}
 
-	public int getY() {
-		return y;
+	public int getyLength() {
+		return yLength;
 	}
 
-	public int getZ() {
-		return z;
+	public int getzLength() {
+		return zLength;
 	}
 
 	public float getWeight() {

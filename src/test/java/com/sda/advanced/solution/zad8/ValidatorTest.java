@@ -51,7 +51,10 @@ class ValidatorTest {
 
 	public static Stream<Validator> validators() {
 		return Stream.of(
-
+				new PrzemekMValidator(),
+				new MagdaValidator(),
+				new ThirdPartyValidator(),
+				new ValidatorImpl()
 		);
 	}
 }
