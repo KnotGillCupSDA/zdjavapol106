@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Storage {
 	private final Map<String, List<String>> map = new HashMap<>();
@@ -28,6 +29,20 @@ public class Storage {
 	}
 
 	public List<String> findKeysByValue(String value) {
-		return null;
+		List<String> listOfKeys = new ArrayList<>();
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			//add only if value is on the list under that key
+			if(entry.getValue().contains(value)) {
+				listOfKeys.add(entry.getKey());
+			}
+		}
+		return listOfKeys;
+	}
+
+	public List<String> findKeysByValueWithStream(String value) {
+		return map.entrySet().stream()
+				.filter(entry -> entry.getValue().contains(value))
+				.map(Map.Entry::getKey)
+				.collect(Collectors.toList());
 	}
 }

@@ -21,9 +21,18 @@ public class Main {
 		storage.printValues("k2");
 		storage.printValues("k3");
 
+		System.out.println("===");
 		List<String> keysForV1 = storage.findKeysByValue("v1");
 		System.out.println(keysForV1); //expected [k1, k2]
 		System.out.println(storage.findKeysByValue("v2")); //expected [k1]
+		System.out.println(storage.findKeysByValue("v5")); //expected [k3]
+		System.out.println(storage.findKeysByValue("not existing")); //expected []
+
+		System.out.println("===");
+		System.out.println(storage.findKeysByValueWithStream("v1")); //expected [k1, k2]
+		System.out.println(storage.findKeysByValueWithStream("v2")); //expected [k1]
+		System.out.println(storage.findKeysByValueWithStream("v5")); //expected [k3]
+		System.out.println(storage.findKeysByValueWithStream("not existing")); //expected []
 	}
 
 }
