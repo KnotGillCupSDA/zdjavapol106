@@ -55,6 +55,11 @@ public class Main {
 		System.out.println("==========");
 		System.out.println(carService.getCarWithAtLeast3Manufacturers());
 		System.out.println(carService.getCarWithAtLeast3ManufacturersWithStream());
+
+
+		System.out.println("==========");
+		System.out.println(carService.getCarsSorted(true));
+		System.out.println(carService.getCarsSorted(false));
 	}
 
 }

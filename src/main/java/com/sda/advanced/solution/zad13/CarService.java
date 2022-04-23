@@ -105,4 +105,23 @@ public class CarService {
 				.orElse(null);
 	}
 
+	public List<Car> getCarsSorted(boolean isAscending) {
+		List<Car> sorted = new ArrayList<>(this.cars);
+
+		/* case sensitive order
+		if(isAscending) {
+			sorted.sort(Comparator.comparing(Car::getName));
+		} else {
+			sorted.sort(Comparator.comparing(Car::getName).reversed());
+		}*/
+
+		if(isAscending) {
+			sorted.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+		} else {
+			sorted.sort((o1, o2) -> -o1.getName().compareToIgnoreCase(o2.getName()));
+		}
+
+		return sorted;
+	}
+
 }
