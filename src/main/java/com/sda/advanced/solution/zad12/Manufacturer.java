@@ -3,9 +3,9 @@ package com.sda.advanced.solution.zad12;
 import java.util.Objects;
 
 public final class Manufacturer {
-	private String name;
-	private int year;
-	private String country;
+	private final String name;
+	private final int year;
+	private final String country;
 
 	public Manufacturer(String name, int year, String country) {
 		this.name = name;
@@ -36,6 +36,15 @@ public final class Manufacturer {
 	@Override
 	public int hashCode() {
 		return Objects.hash(name, year, country);
+	}
+
+	@Override
+	public String toString() {
+		return "Manufacturer{" +
+				"name='" + name + '\'' +
+				", year=" + year +
+				", country='" + country + '\'' +
+				'}';
 	}
 }
 

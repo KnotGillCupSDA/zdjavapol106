@@ -5,12 +5,12 @@ import java.util.Objects;
 
 public class Car {
 
-	private String name;
-	private String model;
-	private float price;
-	private int yearOfProduction;
-	private List<Manufacturer> manufacturerList;
-	private EngineType engineType;
+	private final String name;
+	private final String model;
+	private final float price;
+	private final int yearOfProduction;
+	private final List<Manufacturer> manufacturerList;
+	private final EngineType engineType;
 
 	public Car(String name, String model, float price, int yearOfProduction,
 			List<Manufacturer> manufacturerList, EngineType engineType) {
@@ -59,5 +59,17 @@ public class Car {
 	@Override
 	public int hashCode() {
 		return Objects.hash(name, model, price, yearOfProduction, manufacturerList, engineType);
+	}
+
+	@Override
+	public String toString() {
+		return "Car{" +
+				"name='" + name + '\'' +
+				", model='" + model + '\'' +
+				", price=" + price +
+				", yearOfProduction=" + yearOfProduction +
+				", manufacturerList=" + manufacturerList +
+				", engineType=" + engineType +
+				'}';
 	}
 }
