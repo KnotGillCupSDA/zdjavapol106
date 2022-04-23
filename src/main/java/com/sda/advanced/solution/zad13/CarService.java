@@ -121,6 +121,9 @@ public class CarService {
 			sorted.sort((o1, o2) -> -o1.getName().compareToIgnoreCase(o2.getName()));
 		}
 
+		//we can do this if Car implements comparable
+		//sorted.sort(Car::compareTo);
+
 		return sorted;
 	}
 

@@ -3,7 +3,7 @@ package com.sda.advanced.solution.zad13;
 import java.util.List;
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car>{
 
 	private final String name;
 	private final String model;
@@ -71,5 +71,11 @@ public class Car {
 				", manufacturerList=" + manufacturerList +
 				", engineType=" + engineType +
 				'}';
+	}
+
+
+	@Override
+	public int compareTo(Car o) {
+		return name.compareToIgnoreCase(o.getName());
 	}
 }
