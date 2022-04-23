@@ -51,6 +51,10 @@ public class Main {
 		System.out.println(carService.getTheMostExpensiveCarWithStream());
 		System.out.println(carService.getTheCheapestCar());
 		System.out.println(carService.getTheCheapestCarWithStream());
+
+		System.out.println("==========");
+		System.out.println(carService.getCarWithAtLeast3Manufacturers());
+		System.out.println(carService.getCarWithAtLeast3ManufacturersWithStream());
 	}
 
 }

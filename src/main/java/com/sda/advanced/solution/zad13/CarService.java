@@ -97,4 +97,12 @@ public class CarService {
 		return null;
 	}
 
+	public Car getCarWithAtLeast3ManufacturersWithStream() {
+		return cars
+				.stream()
+				.filter(car -> car.getManufacturerList().size() >= 3)
+				.findFirst()
+				.orElse(null);
+	}
+
 }
