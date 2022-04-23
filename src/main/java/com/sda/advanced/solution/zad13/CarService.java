@@ -127,4 +127,8 @@ public class CarService {
 		return sorted;
 	}
 
+	public boolean isCarOnList(Car car){
+		return cars.contains(car);
+	}
+
 }
