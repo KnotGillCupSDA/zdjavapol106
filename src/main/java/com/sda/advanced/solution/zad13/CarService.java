@@ -1,6 +1,7 @@
 package com.sda.advanced.solution.zad13;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,39 @@ public class CarService {
 		return cars.stream()
 				.filter(car -> car.getYearOfProduction() < 1999)
 				.collect(Collectors.toList());
+	}
+
+	public Car getTheMostExpensiveCar() {
+		Car result = null;
+		for (Car car : cars) {
+			if(result == null || result.getPrice() < car.getPrice()){
+				result = car;
+			}
+		}
+		return result;
+	}
+
+	public Car getTheMostExpensiveCarWithStream() {
+		return cars
+				.stream()
+				.max(Comparator.comparing(Car::getPrice))
+						.orElse(null);
+	}
+
+	public Car getTheCheapestCar(){
+		Car result = null;
+		for (Car car : cars) {
+			if(result == null || result.getPrice() > car.getPrice()){
+				result = car;
+			}
+		} return result;
+	}
+
+	public Car getTheCheapestCarWithStream() {
+		return cars
+				.stream()
+				.min(Comparator.comparing(Car::getPrice))
+				.orElse(null);
 	}
 
 }

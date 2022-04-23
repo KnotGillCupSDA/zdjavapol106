@@ -45,6 +45,12 @@ public class Main {
 		List<Car> carsProducedBefore1999WithStream = carService.getCarsProducedBefore1999WithStream();
 		System.out.println(carsProducedBefore1999);
 		System.out.println(carsProducedBefore1999.equals(carsProducedBefore1999WithStream));
+
+		System.out.println("==========");
+		System.out.println(carService.getTheMostExpensiveCar());
+		System.out.println(carService.getTheMostExpensiveCarWithStream());
+		System.out.println(carService.getTheCheapestCar());
+		System.out.println(carService.getTheCheapestCarWithStream());
 	}
 
 }
