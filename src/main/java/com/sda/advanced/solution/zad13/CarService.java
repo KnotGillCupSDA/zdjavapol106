@@ -90,7 +90,7 @@ public class CarService {
 
 	public Car getCarWithAtLeast3Manufacturers() {
 		for (Car car : cars) {
-			if () {
+			if (car.getManufacturerList().size() >= 3) {
 				return car;
 			}
 		}
