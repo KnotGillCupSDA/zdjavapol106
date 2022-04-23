@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Manufacturer fiat = new Manufacturer("Fiat", 1900, "Italy");
-		Manufacturer mercedes = new Manufacturer("Manufacturer", 1901, "Germany");
+		Manufacturer mercedes = new Manufacturer("Mercedes", 1901, "Germany");
 		Manufacturer porsche = new Manufacturer("Porsche", 1950, "Germany");
 		Manufacturer tesla = new Manufacturer("Tesla", 2010, "USA");
 		Manufacturer benz = new Manufacturer("Benz", 1901, "Germany");
@@ -70,7 +70,9 @@ public class Main {
 
 
 		System.out.println("==========");
-		System.out.println(carService.getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(1902));
+		System.out.println(
+				carService.getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(
+						1902, CarService.Operator.LESS_THAN));
 	}
 
 }

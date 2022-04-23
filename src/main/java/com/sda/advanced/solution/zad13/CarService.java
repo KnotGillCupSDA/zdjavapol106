@@ -148,16 +148,30 @@ public class CarService {
 	}
 
 
-	public List<Car> getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(int foundingYear) {
+	public List<Car> getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(int foundingYear, Operator operator) {
 		List<Car> result = new ArrayList<>();
 		for (Car car : cars) {
 			for (Manufacturer manufacturer : car.getManufacturerList()) {
-				if (manufacturer.getYear() < foundingYear) {
-					result.add(car);
+				if(operator == Operator.LESS_THAN) {
+					if (manufacturer.getYear() < foundingYear) {
+						if (!result.contains(car)) {
+							result.add(car);
+						}
+					}
+				} else if(operator == Operator.GREATER_THAN) {
+					if (manufacturer.getYear() > foundingYear) {
+						if (!result.contains(car)) {
+							result.add(car);
+						}
+					}
 				}
 			}
 		}
 		return result;
 	}
 
+	public enum Operator {
+		LESS_THAN,
+		GREATER_THAN
+	}
 }
