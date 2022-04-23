@@ -12,19 +12,20 @@ public class Circle {
 
 	public double getRadius() {
 		double poweredDifferenceBetweenTwoXCoordinates = Math.pow((center.getX()
-				- point.getX()),2);
+				- point.getX()), 2);
 		double poweredDifferenceBetweenTwoYCoordinates = Math.pow((center.getY()
-				- point.getY()),2);
+				- point.getY()), 2);
 
 		return Math.sqrt(poweredDifferenceBetweenTwoXCoordinates + poweredDifferenceBetweenTwoYCoordinates);
 	}
 
 	public double getPerimeter() {
-		return 0.0;
+		return 2 * Math.PI * getRadius();
 	}
 
 	public double getArea() {
-		return 0.0;
+		//return Math.PI * getRadius() * getRadius();
+		return Math.PI * Math.pow(getRadius(), 2);
 	}
 
 }
