@@ -6,7 +6,7 @@ public class Circle implements Movable, Resizable {
 	private double radius;
 
 	public Circle(Point2D center, Point2D point) {
-		this.center = center;
+		this.center = new Point2D(center.getX(), center.getY());
 		this.radius = calculateRadius(point);
 	}
 
@@ -44,5 +44,13 @@ public class Circle implements Movable, Resizable {
 	@Override
 	public void resize(double resizeFactor) {
 		radius *= resizeFactor;
+	}
+
+	@Override
+	public String toString() {
+		return "Circle{" +
+				"center=" + center +
+				", radius=" + radius +
+				'}';
 	}
 }

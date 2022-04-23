@@ -33,4 +33,12 @@ public class Point2D implements Movable {
 		//x += moveDirection.getX();
 		//y += moveDirection.getY();
 	}
+
+	@Override
+	public String toString() {
+		return "Point2D{" +
+				"x=" + x +
+				", y=" + y +
+				'}';
+	}
 }
