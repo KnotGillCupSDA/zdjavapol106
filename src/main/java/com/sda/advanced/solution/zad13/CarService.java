@@ -21,19 +21,19 @@ public class CarService {
 	}
 
 	public List<Car> getCarsWithEngineV12() {
-		List<Car> carList1 = new ArrayList<>();
-		for (Car i : cars) {
-			if (i.getEngineType().equals(EngineType.V12)) {
-				carList1.add(i);
+		List<Car> carsWithEngineV12 = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getEngineType().equals(EngineType.V12)) {
+				carsWithEngineV12.add(car);
 			}
 		}
-		return carList1;
+		return carsWithEngineV12;
 	}
 
 	public List<Car> getListOfCarsByEngine(EngineType engineType) {
 		return cars.
 				stream().
-				filter(engine -> engine.getEngineType().equals(engineType)).
+				filter(car -> car.getEngineType().equals(engineType)).
 				collect(Collectors.toList());
 	}
 
