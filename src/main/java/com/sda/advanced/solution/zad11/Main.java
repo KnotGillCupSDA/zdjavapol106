@@ -8,5 +8,12 @@ public class Main {
 		System.out.println("radius: " + circle.getRadius());
 		System.out.println("perimeter: " + circle.getPerimeter());
 		System.out.println("area: " + circle.getArea());
+
+		circle.resize(2.0);
+
+		System.out.println("resized:");
+		System.out.println("radius: " + circle.getRadius());
+		System.out.println("perimeter: " + circle.getPerimeter());
+		System.out.println("area: " + circle.getArea());
 	}
 }
