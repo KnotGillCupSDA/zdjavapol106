@@ -14,7 +14,7 @@ public class Main {
 
 		Car panda = new Car("Panda", "Fiat", 40000, 2011, Collections.singletonList(fiat), EngineType.S4);
 		Car sclass = new Car("S600", "Mercedes", 500000, 2020, List.of(mercedes, benz), EngineType.V12);
-		Car sclass2 = new Car("S600", "Mercedes", 550000, 2021, List.of(mercedes, benz), EngineType.V12);
+		Car sclass2 = new Car("S600", "Mercedes", 550000, 2021, List.of(mercedes, benz, tesla), EngineType.V12);
 		Car cayenne = new Car("Cayenne", "Porsche", 300000, 2009, Collections.singletonList(porsche), EngineType.V8);
 		Car boxter = new Car("Boxter", "Porsche", 250000, 2001, Collections.singletonList(porsche), EngineType.S6);
 		Car eclass = new Car("E500", "Mercedes", 400000, 1992, Collections.singletonList(mercedes), EngineType.V8);

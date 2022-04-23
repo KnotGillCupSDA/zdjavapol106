@@ -57,7 +57,7 @@ public class CarService {
 	public Car getTheMostExpensiveCar() {
 		Car result = null;
 		for (Car car : cars) {
-			if(result == null || result.getPrice() < car.getPrice()){
+			if (result == null || result.getPrice() < car.getPrice()) {
 				result = car;
 			}
 		}
@@ -68,16 +68,17 @@ public class CarService {
 		return cars
 				.stream()
 				.max(Comparator.comparing(Car::getPrice))
-						.orElse(null);
+				.orElse(null);
 	}
 
-	public Car getTheCheapestCar(){
+	public Car getTheCheapestCar() {
 		Car result = null;
 		for (Car car : cars) {
-			if(result == null || result.getPrice() > car.getPrice()){
+			if (result == null || result.getPrice() > car.getPrice()) {
 				result = car;
 			}
-		} return result;
+		}
+		return result;
 	}
 
 	public Car getTheCheapestCarWithStream() {
@@ -85,6 +86,15 @@ public class CarService {
 				.stream()
 				.min(Comparator.comparing(Car::getPrice))
 				.orElse(null);
+	}
+
+	public Car getCarWithAtLeast3Manufacturers() {
+		for (Car car : cars) {
+			if () {
+				return car;
+			}
+		}
+		return null;
 	}
 
 }
