@@ -3,6 +3,8 @@ package com.sda.advanced.solution.zad13;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiPredicate;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CarService {
@@ -147,22 +149,27 @@ public class CarService {
 				.collect(Collectors.toList());
 	}
 
-
 	public List<Car> getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(int foundingYear, Operator operator) {
 		List<Car> result = new ArrayList<>();
 		for (Car car : cars) {
 			for (Manufacturer manufacturer : car.getManufacturerList()) {
-				if(operator == Operator.LESS_THAN) {
-					if (manufacturer.getYear() < foundingYear) {
-						if (!result.contains(car)) {
-							result.add(car);
-						}
-					}
-				} else if(operator == Operator.GREATER_THAN) {
-					if (manufacturer.getYear() > foundingYear) {
-						if (!result.contains(car)) {
-							result.add(car);
-						}
+				if (!result.contains(car)) {
+					switch (operator) {
+						case LESS_THAN:
+							if (manufacturer.getYear() < foundingYear) {
+								result.add(car);
+							}
+							break;
+						case GREATER_THAN:
+							if (manufacturer.getYear() > foundingYear) {
+								result.add(car);
+							}
+							break;
+						case EQUALS:
+							if (manufacturer.getYear() == foundingYear) {
+								result.add(car);
+							}
+							break;
 					}
 				}
 			}
@@ -170,8 +177,27 @@ public class CarService {
 		return result;
 	}
 
+	public List<Car> getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYearWithStream(
+			int foundingYear, Operator operator) {
+		return cars.stream()
+				.filter(car -> car.getManufacturerList().stream()
+						.anyMatch(m -> operator.fits(m, foundingYear)))
+				.collect(Collectors.toList());
+	}
+
 	public enum Operator {
-		LESS_THAN,
-		GREATER_THAN
+		LESS_THAN((manufacturer, productionYear) -> manufacturer.getYear() < productionYear),
+		GREATER_THAN((manufacturer, productionYear) -> manufacturer.getYear() > productionYear),
+		EQUALS((manufacturer, productionYear) -> manufacturer.getYear() == productionYear);
+
+		private final BiPredicate<Manufacturer, Integer> fits;
+
+		Operator(BiPredicate<Manufacturer, Integer> fits) {
+			this.fits = fits;
+		}
+
+		boolean fits(Manufacturer m, Integer i) {
+			return this.fits.test(m, i);
+		}
 	}
 }
