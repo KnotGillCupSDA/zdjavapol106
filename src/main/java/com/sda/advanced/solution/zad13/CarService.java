@@ -37,4 +37,20 @@ public class CarService {
 				collect(Collectors.toList());
 	}
 
+	public List<Car> getCarsProducedBefore1999() {
+		List<Car> carList1 = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getYearOfProduction() < 1999) {
+				carList1.add(car);
+			}
+		}
+		return carList1;
+	}
+
+	public List<Car> getCarsProducedBefore1999WithStream() {
+		return cars.stream()
+				.filter(car -> car.getYearOfProduction() < 1999)
+				.collect(Collectors.toList());
+	}
+
 }

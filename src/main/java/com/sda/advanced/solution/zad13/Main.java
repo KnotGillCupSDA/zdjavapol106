@@ -39,6 +39,12 @@ public class Main {
 		System.out.println("==========");
 		System.out.println(carService.getCarsWithEngineV12());
 		System.out.println(carService.getListOfCarsByEngine(EngineType.V12));
+
+		System.out.println("==========");
+		List<Car> carsProducedBefore1999 = carService.getCarsProducedBefore1999();
+		List<Car> carsProducedBefore1999WithStream = carService.getCarsProducedBefore1999WithStream();
+		System.out.println(carsProducedBefore1999);
+		System.out.println(carsProducedBefore1999.equals(carsProducedBefore1999WithStream));
 	}
 
 }
