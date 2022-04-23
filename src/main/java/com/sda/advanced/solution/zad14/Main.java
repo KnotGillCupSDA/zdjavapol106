@@ -21,6 +21,26 @@ public class Main {
 		List<Integer> distinct = distinct(array);
 		System.out.println("========================");
 		System.out.println(distinct);
+		List<Integer> duplicates = getDuplicates(array);
+		System.out.println("========================");
+		System.out.println(duplicates);
+		System.out.println("========================");
+
+
+
+		//alternative: from Magda
+		Set<Integer> uniqueValues = new HashSet<>();
+		Set<Integer> duplicatedValues = new HashSet<>();
+		for (Integer randomNumber : array) {
+			if (!uniqueValues.add(randomNumber)) {
+				duplicatedValues.add(randomNumber);
+			}
+		}
+		List<Integer> uniqueValuesList = new ArrayList<>(uniqueValues);
+		List<Integer> duplicatedValuesList = new ArrayList<>(duplicatedValues);
+
+		System.out.println("Unique values: " + uniqueValuesList);
+		System.out.println("Duplicated values: " + duplicatedValuesList);
 
 	}
 
@@ -55,11 +75,15 @@ public class Main {
 	}
 
 	private static List<Integer> getDuplicates(int[] array) {
-		List<Integer> newIntegerArrayList = new ArrayList<>();
+		Set<Integer> duplicates = new HashSet<>();
 		Set<Integer> alreadySeen = new HashSet<>();
+		for (int i : array) {
+			if(!alreadySeen.add(i)) {
+				duplicates.add(i);
+			}
+		}
 
-
-		return newIntegerArrayList;
+		return new ArrayList<>(duplicates);
 	}
 
 }
