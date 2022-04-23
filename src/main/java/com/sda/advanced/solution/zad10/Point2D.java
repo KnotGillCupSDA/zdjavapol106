@@ -27,6 +27,7 @@ public class Point2D {
 	}
 
 	public void move(MoveDirection moveDirection) {
-
+		this.setX(this.getX() + moveDirection.getX());
+		this.setY(this.getY() + moveDirection.getY());
 	}
 }

@@ -14,7 +14,7 @@ class Point2DTest {
 		point2D.move(moveDirection);
 
 		assertEquals(2.0, point2D.getX());
-		assertEquals(3.0, point2D.getX());
+		assertEquals(3.0, point2D.getY());
 
 	}
 }
