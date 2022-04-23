@@ -63,6 +63,14 @@ public class Main {
 		System.out.println("==========");
 		System.out.println(carService.isCarOnList(boxter));
 		System.out.println(carService.isCarOnList(panda));
+
+		System.out.println("==========");
+		System.out.println(carService.findCarsByManufacturer(porsche));
+		System.out.println(carService.findCarsByManufacturerWithStream(porsche));
+
+
+		System.out.println("==========");
+		System.out.println(carService.getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(1902));
 	}
 
 }

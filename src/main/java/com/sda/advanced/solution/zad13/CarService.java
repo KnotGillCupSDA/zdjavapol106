@@ -115,7 +115,7 @@ public class CarService {
 			sorted.sort(Comparator.comparing(Car::getName).reversed());
 		}*/
 
-		if(isAscending) {
+		if (isAscending) {
 			sorted.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
 		} else {
 			sorted.sort((o1, o2) -> -o1.getName().compareToIgnoreCase(o2.getName()));
@@ -127,8 +127,37 @@ public class CarService {
 		return sorted;
 	}
 
-	public boolean isCarOnList(Car car){
+	public boolean isCarOnList(Car car) {
 		return cars.contains(car);
+	}
+
+	public List<Car> findCarsByManufacturer(Manufacturer manufacturer) {
+		List<Car> result = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getManufacturerList().contains(manufacturer)) {
+				result.add(car);
+			}
+		}
+		return result;
+	}
+
+	public List<Car> findCarsByManufacturerWithStream(Manufacturer manufacturer) {
+		return cars.stream()
+				.filter(car -> car.getManufacturerList().contains(manufacturer))
+				.collect(Collectors.toList());
+	}
+
+
+	public List<Car> getListOfCarsMadeByManufacturerThatWasEstablishedInSomeYear(int foundingYear) {
+		List<Car> result = new ArrayList<>();
+		for (Car car : cars) {
+			for (Manufacturer manufacturer : car.getManufacturerList()) {
+				if (manufacturer.getYear() < foundingYear) {
+					result.add(car);
+				}
+			}
+		}
+		return result;
 	}
 
 }
