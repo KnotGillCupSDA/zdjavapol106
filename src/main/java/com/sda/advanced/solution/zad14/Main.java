@@ -42,7 +42,9 @@ public class Main {
 		System.out.println("Unique values: " + uniqueValuesList);
 		System.out.println("Duplicated values: " + duplicatedValuesList);
 
-		List<Integer> top = getTop25(new int[] { 1, 2, 1, 3, 1, 2 });
+		//List<Integer> top = getTop25(new int[] { 1, 2, 1, 3, 1, 2 });
+		System.out.println(getTop25(array));
+
 
 	}
 
@@ -103,6 +105,11 @@ public class Main {
 			}
 		}
 
-		return null;
+		return mapOfOccurrences.entrySet()
+				.stream()
+				.sorted((o1, o2) -> Integer.compare(o2.getValue(), o1.getValue())) // sort by value descending
+				.limit(25)
+				.map(Map.Entry::getKey) // map to keys
+				.collect(Collectors.toList());
 	}
 }
