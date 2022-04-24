@@ -10,13 +10,14 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		Path workingDirectory = Paths.get("src", "main", "resources", "zad30");
-		System.out.println("exists? " + workingDirectory.resolve("someTextFile.txt").toFile().exists());
+		String sourceFileName = "someTextFile.txt";
+		System.out.println("exists? " + workingDirectory.resolve(sourceFileName).toFile().exists());
 
-		Path pathToFile = workingDirectory.resolve("someTextFile.txt");
+		Path pathToFile = workingDirectory.resolve(sourceFileName);
 		String textFromFile = Files.readString(pathToFile);
 		System.out.println(textFromFile);
 
-		Files.writeString(workingDirectory.resolve("someNewFile.txt"), getReversed(textFromFile));
+		Files.writeString(workingDirectory.resolve(getReversed(sourceFileName)), getReversed(textFromFile));
 	}
 
 	private static String getReversed(String original){
