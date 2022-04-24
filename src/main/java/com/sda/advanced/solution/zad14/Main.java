@@ -28,8 +28,6 @@ public class Main {
 		System.out.println(duplicates);
 		System.out.println("========================");
 
-
-
 		//alternative: from Magda
 		Set<Integer> uniqueValues = new HashSet<>();
 		Set<Integer> duplicatedValues = new HashSet<>();
@@ -44,9 +42,7 @@ public class Main {
 		System.out.println("Unique values: " + uniqueValuesList);
 		System.out.println("Duplicated values: " + duplicatedValuesList);
 
-
-
-		List<Integer> top = getTop25(array);
+		List<Integer> top = getTop25(new int[] { 1, 2, 1, 3, 1, 2 });
 
 	}
 
@@ -60,7 +56,7 @@ public class Main {
 	private static List<Integer> distinct(int[] array) {
 		List<Integer> newIntegerArrayList = new ArrayList<>();
 
-		for (Integer integer: array) {
+		for (Integer integer : array) {
 			if (!newIntegerArrayList.contains(integer)) {
 				newIntegerArrayList.add(integer);
 			}
@@ -84,7 +80,7 @@ public class Main {
 		Set<Integer> duplicates = new HashSet<>();
 		Set<Integer> alreadySeen = new HashSet<>();
 		for (int i : array) {
-			if(!alreadySeen.add(i)) {
+			if (!alreadySeen.add(i)) {
 				duplicates.add(i);
 			}
 		}
@@ -93,23 +89,20 @@ public class Main {
 	}
 
 	private static List<Integer> getTop25(int[] array) {
-		Map<Integer, Integer> map = new HashMap<>();
+		Map<Integer, Integer> mapOfOccurrences = new HashMap<>();
 
+		//[1,2,1,3,1,2]
 		for (int element : array) {
-			//if map does not contain element => put with value 1
-			//otherwise => get the current value under that key and increment/put
-		}
-		return null;
-	}
-
-	private static int getOccurrences(int[] array, int element) {
-		int counter = 0;
-
-		for (int i : array) {
-			if(i == element) {
-				counter++;
+			if (!mapOfOccurrences.containsKey(element)) {
+				//if map does not contain element => put with value 1
+				mapOfOccurrences.put(element, 1);
+			} else {
+				//otherwise => get the current value/counter under that key and increment/put
+				Integer counter = mapOfOccurrences.get(element);
+				mapOfOccurrences.put(element, ++counter);
 			}
 		}
-		return counter;
+
+		return null;
 	}
 }
