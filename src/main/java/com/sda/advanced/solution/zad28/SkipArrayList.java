@@ -3,14 +3,14 @@ package com.sda.advanced.solution.zad28;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SkipArrayList extends ArrayList {
+public class SkipArrayList<E> extends ArrayList<E> {
 
-	public List getEveryNthElement(int startIndex, int skip) {
+	public List<E> getEveryNthElement(int startIndex, int skip) {
 
-		List newCharList = new ArrayList();
+		List<E> newCharList = new ArrayList<E>();
 
-		for (int i = 0; startIndex + skip * i < size(); i++) {
-			newCharList.add(get(startIndex + skip * i));
+		for (int i = startIndex; i < size(); i += skip + 1) {
+			newCharList.add(get(i));
 		}
 
 		return newCharList;
