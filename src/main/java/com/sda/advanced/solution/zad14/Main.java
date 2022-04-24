@@ -2,8 +2,10 @@ package com.sda.advanced.solution.zad14;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -91,6 +93,12 @@ public class Main {
 	}
 
 	private static List<Integer> getTop25(int[] array) {
+		Map<Integer, Integer> map = new HashMap<>();
+
+		for (int element : array) {
+			//if map does not contain element => put with value 1
+			//otherwise => get the current value under that key and increment/put
+		}
 		return null;
 	}
 
