@@ -15,5 +15,11 @@ public class Main {
 		Path pathToFile = workingDirectory.resolve("someTextFile.txt");
 		String textFromFile = Files.readString(pathToFile);
 		System.out.println(textFromFile);
+
+		Files.writeString(workingDirectory.resolve("someNewFile.txt"), getReversed(textFromFile));
+	}
+
+	private static String getReversed(String original){
+		return new StringBuilder(original).reverse().toString();
 	}
 }
