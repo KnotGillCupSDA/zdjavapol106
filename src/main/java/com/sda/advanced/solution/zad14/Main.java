@@ -42,6 +42,10 @@ public class Main {
 		System.out.println("Unique values: " + uniqueValuesList);
 		System.out.println("Duplicated values: " + duplicatedValuesList);
 
+
+
+		List<Integer> top = getTop25(array);
+
 	}
 
 	private static void fill(int[] array) {
@@ -86,4 +90,18 @@ public class Main {
 		return new ArrayList<>(duplicates);
 	}
 
+	private static List<Integer> getTop25(int[] array) {
+		return null;
+	}
+
+	private static int getOccurrences(int[] array, int element) {
+		int counter = 0;
+
+		for (int i : array) {
+			if(i == element) {
+				counter++;
+			}
+		}
+		return counter;
+	}
 }
